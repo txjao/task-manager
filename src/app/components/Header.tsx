@@ -6,6 +6,8 @@ import Link from "next/link";
 export function Header() {
 
     const { data: session, status } = useSession();
+    console.log(session)
+    console.log(status)
 
     return (
         <header className="w-full h-20 bg-black flex justify-center items-center">
@@ -25,12 +27,12 @@ export function Header() {
                     <>
                     </>
                 ) : session ? (
-                    <button className="py-2 px-8 rounded-3xl border-white border-solid border-[1px] transition-transform duration-[0.2s] hover:scale-[1.08] hover:bg-white hover:text-black"
+                    <button className="py-2 px-8 rounded-3xl border-white border-solid border-[1px] transition-transform duration-[0.2s] hover:scale-[1.08] hover:bg-red-600 hover:border-red-600"
                         onClick={() => signOut()}>
                         Olá {session?.user?.name}
                     </button>
                 ) : (
-                    <button className="py-2 px-8 rounded-3xl border-white border-solid border-[1px] transition-transform duration-[0.2s] hover:scale-[1.08] hover:bg-white hover:text-black"
+                    <button className="py-2 px-8 rounded-3xl border-white border-solid border-[1px] transition-transform duration-[0.2s] hover:scale-[1.08] "
                         onClick={() => signIn("google")}>
                         Acessar
                     </button>
