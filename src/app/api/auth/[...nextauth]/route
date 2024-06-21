@@ -5,8 +5,8 @@ const handler = NextAuth(
     {
         providers: [
             GoogleProvider({
-                clientId: "find on google cloud console",
-                clientSecret: "find on google cloud console",
+                clientId: process.env.GOOGLE_CLIENT_ID as string,
+                clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
                 authorization: {
                     params: {
                         prompt: "consent",
@@ -16,7 +16,7 @@ const handler = NextAuth(
                 }
             }),
         ],
-        secret: "jwt secret",
+        secret: process.env.JWT_SECRET as string,
     }
 )
-export { handler as GET, handler as POST};
+export { handler as GET, handler as POST };
